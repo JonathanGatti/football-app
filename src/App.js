@@ -1,10 +1,10 @@
 import React from 'react';
-import Player from './Player'
+import SearchPlayerForm from './SearchPlayerForm'
 
 function App() {
   return (
     <div>
-      <Player />
+      <SearchPlayerForm />
     </div>
   );
 }
