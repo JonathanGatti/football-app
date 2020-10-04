@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Player(props) {
-  const {player_name, player_age, player_team} = props.player
+  const {player_name, player_age} = props.player
   return (
     <div>
       <h1>{player_name}</h1>
