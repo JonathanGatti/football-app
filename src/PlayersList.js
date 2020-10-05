@@ -1,13 +1,15 @@
 import React from 'react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 function PlayersList(props){
   return (
     <div>
-      <ul>
+      <List>
         {props.players.map(player => (
-          <li>{player.player_name}</li>
+          <ListItem key={player.player_name}>{player.player_name}</ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   )
 }

@@ -1,11 +1,12 @@
 import React from 'react';
-import SearchPlayerForm from './SearchPlayerForm'
+import Team from './Team';
+import Paper from '@material-ui/core/Paper';
 
 function App() {
   return (
-    <div>
-      <SearchPlayerForm />
-    </div>
+    <Paper className='container'>
+      <Team />
+    </Paper>
   );
 }
 
