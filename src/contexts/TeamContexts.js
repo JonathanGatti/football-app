@@ -18,9 +18,20 @@ const players = [
 
 export function TeamContextProvider(props) {
   const [team, setTeam] = useState(players)
-
+  const getType = (type) => {
+    switch(type){
+      case 'gk':
+        return 10
+      case 'def':
+        return 3
+      case 'cc':
+          return 4 
+      case 'att':
+          return 3
+    }
+  }
   return (
-    <TeamContext.Provider value={{team, setTeam}}>
+    <TeamContext.Provider value={{team, setTeam, getType}}>
       {props.children}
     </TeamContext.Provider>
   )

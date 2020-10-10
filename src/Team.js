@@ -11,10 +11,25 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundImage: `url(${background})`,
     width: '100vw',
-    height: '100vh'
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  playerContainer : {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   paper: {
     padding: theme.spacing(2),
+    marginTop: theme.spacing(4),
+    width: '200px',
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
@@ -22,24 +37,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Team(){
   const classes = useStyles();
-  const {team} = useContext(TeamContext)
-  const getType = (type) => {
-    switch(type){
-      case 'gk':
-        return 12
-      case 'def':
-        return 3
-      case 'cc':
-          return 4 
-      case 'att':
-          return 4
-    }
-  }
+  const {team, getType} = useContext(TeamContext)
+
   return(
       <Paper className={classes.root}>
-        <Grid container spacing={4}>
+        <Grid container className={classes.container}spacing={4}>
         {team.map(player => (
-          <Grid item xs={getType(player.type)}>
+          <Grid className={classes.playerContainer} item xs={getType(player.type)}>
             <Paper className={classes.paper}>
               <Player player={player}/>
             </Paper>
