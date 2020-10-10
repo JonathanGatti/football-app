@@ -5,7 +5,7 @@ import PlayersList from './PlayersList'
 import TextField from '@material-ui/core/TextField';
 import config from './config'
 
-const url = 'http://api-football-v1.p.rapidapi.com/v2/players/search/';
+const url = 'https://api-football-v1.p.rapidapi.com/v2/players/search/';
 
 function SearchPlayerForm() {
   const [val, handleChange, reset] = useSearchPlayerForm('');

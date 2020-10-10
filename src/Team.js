@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Player from './Player'
+import Grid from '@material-ui/core/Grid';
+import Player from './Player';
+import { TeamContext } from './contexts/TeamContexts';
+
 
 function Team(){
-  const players = {
-    players: [1,2,3,4,5,6,7,8,9,10,11]
-  } 
+  const {team} = useContext(TeamContext)
   return(
-    <Paper>
-      {players.players.map(player => (
-        <Player />
-      ))
-    }
-    </Paper>
+      <Paper>
+        <Grid container>
+        {team.map(player => (
+          <Grid item>
+            <Player player={player}/>
+          </Grid>
+        ))
+      }
+        </Grid>
+      </Paper>
   )
 }
 
