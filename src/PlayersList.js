@@ -13,6 +13,7 @@ function PlayersList(props){
   const {isFormShowing, toggleForm} = useContext(FormContext)
   function handleClick(player, i){
     updateTeam(player, i);
+    toggleForm();
   }
   return (
     <div>

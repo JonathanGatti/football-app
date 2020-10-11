@@ -10,9 +10,12 @@ function Player(props) {
 
   return (
     <div>
-        <Button onClick={toggleForm}>
-        {isFormShowing ? <SearchPlayerForm idx={props.idx}/> : player_name}
+      {
+      isFormShowing ? <SearchPlayerForm idx={props.idx}/>
+      : <Button onClick={toggleForm}>
+       {player_name}
         </Button>
+      }  
     </div>
   )
 }
