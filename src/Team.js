@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Player from './Player';
 import { TeamContext } from './contexts/TeamContexts';
+import { FormContextProvider } from './contexts/FormContext';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,17 +39,19 @@ const useStyles = makeStyles((theme) => ({
 
 function Team(){
   const classes = useStyles();
-  const {team, getType} = useContext(TeamContext)
+  const {team, getPosition} = useContext(TeamContext)
 
   return(
       <Paper className={classes.root}>
         <Grid container className={classes.container}spacing={4}>
-        {team.map(player => (
-          <Grid className={classes.playerContainer} item xs={getType(player.type)}>
-            <Paper className={classes.paper}>
-              <Player player={player}/>
-            </Paper>
-          </Grid>
+        {team.map((player, i) => (
+          <FormContextProvider>
+            <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
+              <Paper className={classes.paper}>
+                <Player idx={i} player={player}/>
+              </Paper>
+            </Grid>
+          </FormContextProvider>
           ))
         }
         </Grid>

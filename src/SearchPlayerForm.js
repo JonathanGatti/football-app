@@ -7,7 +7,7 @@ import config from './config'
 
 const url = 'https://api-football-v1.p.rapidapi.com/v2/players/search/';
 
-function SearchPlayerForm() {
+function SearchPlayerForm(props) {
   const [val, handleChange, reset] = useSearchPlayerForm('');
   const [players, setPlayers] = useState('');
   
@@ -21,6 +21,7 @@ function SearchPlayerForm() {
         }
     })
       setPlayers(res.data.api.players)
+
       }
     catch(e){
       console.log(e);
@@ -43,7 +44,7 @@ function SearchPlayerForm() {
             onChange={handleChange}
           />
         </form>
-        {players && <PlayersList players={players}/>}
+        {players && <PlayersList players={players} idx={props.idx}/>}
       </div>
   )
 }
