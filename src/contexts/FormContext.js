@@ -13,9 +13,13 @@ export function FormContextProvider(props){
     setDialog(true);
     setIsFormShowing(!isFormShowing)
   };
+  const handleClickClose = () => {
+    setDialog(false)
+    setIsFormShowing(!isFormShowing)
+  }
 
   return (
-    <FormContext.Provider value={{isFormShowing, toggleForm, handleClickOpen}}>
+    <FormContext.Provider value={{isFormShowing, toggleForm, handleClickOpen, handleClickClose}}>
       {props.children}
     </FormContext.Provider>
   )

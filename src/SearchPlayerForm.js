@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import config from './config';
+import {FormContext} from './contexts/FormContext';
 import useSearchPlayerForm from './hooks/useSearchPlayerForm';
 import PlayersList from './PlayersList';
 import Button from '@material-ui/core/Button';
@@ -16,15 +17,9 @@ const url = 'https://api-football-v1.p.rapidapi.com/v2/players/search/';
 function SearchPlayerForm(props) {
   const {open} = props
   const [val, handleChange, reset] = useSearchPlayerForm('');
+  const {handleClickClose} = useContext(FormContext)
   const [players, setPlayers] = useState('');
-  const [setOpen] = useState(false);
 
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  
   async function getData(name){
     try {
       let res = await axios.get(`${url}${name}`, {
@@ -46,7 +41,7 @@ function SearchPlayerForm(props) {
   } 
   return (
       <div>
-          <Dialog  open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <Dialog  open={open} onClose={handleClickClose} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Search for a Player</DialogTitle>
           <DialogContent>
             <form onSubmit={e => {
@@ -64,7 +59,7 @@ function SearchPlayerForm(props) {
             {players && <PlayersList players={players} idx={props.idx}/>}
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} color="primary">
+            <Button onClick={handleClickClose} color="primary">
               Cancel
             </Button>
           </DialogActions>
