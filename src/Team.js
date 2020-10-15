@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   playerContainer : {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   paper: {
     padding: theme.spacing(2),

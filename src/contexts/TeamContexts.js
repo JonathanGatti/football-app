@@ -25,7 +25,6 @@ export function TeamContextProvider(props) {
       return idx === i ? {...newPlayer} : player
     })
       setTeam(updatedTeam);
-      console.log(updatedTeam)
   }
   
   return (
