@@ -12,13 +12,13 @@ import PlayerInfo from './PlayerInfo';
 function Player(props) {
   const {player} = props
   const {player_name, position} = props.player;
-  const {isFormShowing, toggleForm} = useContext(FormContext);
+  const {isFormShowing, handleClickOpen} = useContext(FormContext);
   const {playerInfo, showPlayerInfo} = useContext(PlayerInfoContext)
 
   return (
     <div>
       {
-      isFormShowing ? <SearchPlayerForm idx={props.idx}/>
+      isFormShowing ? <SearchPlayerForm idx={props.idx} open={isFormShowing}/>
       : 
       <>
       { playerInfo ? <PlayerInfo player={player}/> : 
@@ -28,7 +28,9 @@ function Player(props) {
           <Typography >{position}</Typography>
           </CardContent>
         <CardActions>
-          <Button size='small' onClick={toggleForm}>Edit</Button>
+        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          Edit
+        </Button>
           <Button size='small' onClick={showPlayerInfo}>More</Button>
         </CardActions>
       </Card>
