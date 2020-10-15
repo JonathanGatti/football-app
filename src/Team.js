@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Player from './Player';
 import { TeamContext } from './contexts/TeamContexts';
 import { FormContextProvider } from './contexts/FormContext';
+import { PlayerInfoContextProvider } from './contexts/PlayerInfoContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
@@ -51,11 +52,13 @@ function Team(){
         <Grid container className={classes.container}spacing={4}>
         {team.map((player, i) => (
           <FormContextProvider>
-            <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
-              <Paper className={classes.paper}>
-                <Player idx={i} player={player} />
-              </Paper>
-            </Grid>
+            <PlayerInfoContextProvider>
+              <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
+                <Paper className={classes.paper}>
+                  <Player idx={i} player={player} />
+                </Paper>
+              </Grid>
+            </PlayerInfoContextProvider>
           </FormContextProvider>
           ))
         }

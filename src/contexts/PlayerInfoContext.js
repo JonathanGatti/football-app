@@ -3,12 +3,12 @@ import React, {createContext, useState} from 'react';
 export const PlayerInfoContext = createContext();
 
 export function PlayerInfoContextProvider(props){
-  const [showPlayer, setShowPlayer] = useState(false);
-  const togglePlayerInfo = () => {
-    setShowPlayer(!showPlayer)
+  const [playerInfo, setPlayerInfo] = useState(false);
+  const showPlayerInfo = () => {
+    setPlayerInfo({playerInfo: true})
   }
   return (
-    <PlayerInfoContext.Provider value={{showPlayer, togglePlayerInfo}}>
+    <PlayerInfoContext.Provider value={{playerInfo, showPlayerInfo}}>
       {props.children}
     </PlayerInfoContext.Provider>
   )
