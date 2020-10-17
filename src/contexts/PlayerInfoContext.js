@@ -3,18 +3,18 @@ import React, {createContext, useState} from 'react';
 export const PlayerInfoContext = createContext();
 
 export function PlayerInfoContextProvider(props){
-  const [playerInfo, setPlayerInfo] = useState(false);
+  const [isPlayerInfoShowing, setPlayerInfo] = useState(false);
   const [dialog, setDialog] = useState(false)
   const showPlayerInfo = () => {
     setDialog(true)
-    setPlayerInfo(!playerInfo)
+    setPlayerInfo(!isPlayerInfoShowing)
   }
   const hidePlayerInfo = () => {
     setDialog(false)
-    setPlayerInfo(!playerInfo)
+    setPlayerInfo(!isPlayerInfoShowing)
   }
   return (
-    <PlayerInfoContext.Provider value={{playerInfo, showPlayerInfo, hidePlayerInfo}}>
+    <PlayerInfoContext.Provider value={{isPlayerInfoShowing, showPlayerInfo, hidePlayerInfo}}>
       {props.children}
     </PlayerInfoContext.Provider>
   )

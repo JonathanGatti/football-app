@@ -13,7 +13,7 @@ function Player(props) {
   const {player} = props
   const {player_name, position} = props.player;
   const {isFormShowing, handleClickOpen} = useContext(FormContext);
-  const {playerInfo, showPlayerInfo} = useContext(PlayerInfoContext);
+  const {isPlayerInfoShowing, showPlayerInfo} = useContext(PlayerInfoContext);
 
   return (
     <div>
@@ -21,7 +21,7 @@ function Player(props) {
       isFormShowing ? <SearchPlayerForm idx={props.idx} open={isFormShowing}/>
       : 
       <>
-      { playerInfo ? <PlayerInfo player={player} open={playerInfo}/> : 
+      { isPlayerInfoShowing ? <PlayerInfo player={player} open={isPlayerInfoShowing}/> : 
         <Card>
           <CardContent>
             <Typography >{player_name}</Typography>
