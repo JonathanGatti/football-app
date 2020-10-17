@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     width: '200px',
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    backgroundColor: 'transparent'
   },
 }));
 
