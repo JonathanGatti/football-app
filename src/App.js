@@ -6,7 +6,7 @@ import { TeamContextProvider } from './contexts/TeamContexts';
 function App() {
   return (
     <TeamContextProvider>
-      <Paper className='container'>
+      <Paper>
         <Team />
       </Paper>
     </TeamContextProvider>

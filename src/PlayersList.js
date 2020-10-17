@@ -10,7 +10,7 @@ import { FormContext } from './contexts/FormContext';
 
 function PlayersList(props){
   const {updateTeam} = useContext(TeamContext)
-  const {isFormShowing, toggleForm} = useContext(FormContext)
+  const {toggleForm} = useContext(FormContext)
   function handleClick(player, i){
     updateTeam(player, i);
     toggleForm();
