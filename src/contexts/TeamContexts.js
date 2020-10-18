@@ -1,8 +1,6 @@
 import React, {createContext, useState} from 'react';
 import defaultPlayers from '../seedPlayers';
 
-
-
 export const TeamContext = createContext();
 
 export function TeamContextProvider(props) {

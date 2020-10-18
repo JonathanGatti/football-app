@@ -5,6 +5,7 @@ import {Typography} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import {Link} from 'react-router-dom';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   title: {
-    color: 'black'
+    color: 'white'
   },
   container: {
     width: '60%',
@@ -33,22 +34,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TeamsList(props){
+function TeamsList(){
   const classes = useStyles();
   return (
     <Grid container className={classes.root} >
-    <Typography className={classes.title} variant='h3'>The Football App</Typography>
+      <Typography className={classes.title} variant='h3'>The Football App</Typography>
+      <Link to='/team/create'>Create Team</Link>
       <Grid item xs={12}>
         <Grid container className={classes.container} >
           {[0, 1, 2,3,4,5].map((value) => (
             <Grid key={value} item>
-              <Paper className={classes.paper}>
-                <Link to='/team/juventus'>juventus</Link>
-              </Paper>
+              <Link to='/team/juventus'>
+                <Paper className={classes.paper}>
+                  <Typography>Juventus</Typography>
+                </Paper>
+              </Link>
             </Grid>
-          ))}
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
     </Grid>
   )
 }

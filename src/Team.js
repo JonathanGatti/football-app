@@ -5,7 +5,6 @@ import Player from './Player';
 import { TeamContext } from './contexts/TeamContexts';
 import { FormContextProvider } from './contexts/FormContext';
 import { PlayerInfoContextProvider } from './contexts/PlayerInfoContext';
-import Typography from '@material-ui/core/Typography';
 import useStyles from './styles/TeamStyles';
 
 function Team(){

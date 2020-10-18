@@ -1,6 +1,4 @@
 import React, {useContext, useState} from 'react';
-import axios from 'axios';
-import config from './config';
 import {FormContext} from './contexts/FormContext';
 import useSearchPlayerForm from './hooks/useSearchPlayerForm';
 import PlayersList from './PlayersList';
@@ -10,8 +8,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
+import getData from './utils/fetchData';
 
-const url = 'https://api-football-v1.p.rapidapi.com/v2/players/search/';
 
 function SearchPlayerForm(props) {
   const {open} = props
@@ -19,28 +17,14 @@ function SearchPlayerForm(props) {
   const {handleClickClose} = useContext(FormContext)
   const [players, setPlayers] = useState('');
 
-  async function getData(name){
-    try {
-      let res = await axios.get(`${url}${name}`, {
-        "headers": {
-          "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-          "x-rapidapi-key": config.api_key,
-          "useQueryString": true
-        }
-    })
-      setPlayers(res.data.api.players)
-
-      }
-    catch(e){
-      console.log(e);
-    }
-  }
-  const handleSubmit = () =>{
-    getData(val)
+  const handleSubmit = async () =>{
+    const team = await getData(val)
+    console.log(team)
+    setPlayers(team)
   } 
   return (
       <div>
-          <Dialog  open={open} onClose={handleClickClose} aria-labelledby="form-dialog-title">
+        <Dialog  open={open} onClose={handleClickClose} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Search for a Player</DialogTitle>
           <DialogContent>
             <form onSubmit={e => {
