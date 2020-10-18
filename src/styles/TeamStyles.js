@@ -27,12 +27,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    padding: theme.spacing(2),
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(1.3),
     width: '200px',
     textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     color: theme.palette.text.secondary,
-    backgroundColor: 'transparent'
   },
 }));
 
