@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  title: {
-    color: 'white',
-  },
   container: {
     height: '90%',
     display: 'flex',

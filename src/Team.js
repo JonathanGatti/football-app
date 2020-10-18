@@ -14,7 +14,6 @@ function Team(){
 
   return(
       <Paper className={classes.root}>
-        <Typography className={classes.title} variant='h3'>The Football App</Typography>
         <Grid container className={classes.container}spacing={4}>
         {team.map((player, i) => (
           <FormContextProvider>
