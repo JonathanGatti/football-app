@@ -7,9 +7,10 @@ import { FormContextProvider } from './contexts/FormContext';
 import { PlayerInfoContextProvider } from './contexts/PlayerInfoContext';
 import useStyles from './styles/TeamStyles';
 
-function Team(){
+function Team(props){
   const classes = useStyles();
-  const {teamPlayers, getPosition} = useContext(TeamContext)
+  const {teamPlayers} = props;
+  const {getPosition} = useContext(TeamContext)
 
   return(
       <Paper className={classes.root}>
@@ -17,7 +18,7 @@ function Team(){
         {teamPlayers.map((player, i) => (
           <FormContextProvider>
             <PlayerInfoContextProvider>
-              <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
+              <Grid className={classes.playerContainer} item xs={getPosition(player.position)} key={i} >
                 <Paper className={classes.paper}>
                   <Player idx={i} player={player} />
                 </Paper>

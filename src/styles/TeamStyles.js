@@ -2,13 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import background from '../imgs/background.jpg'
 
 const useStyles = makeStyles((theme) => ({
-  input : {
-    backgroundColor: 'white',
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
   root: {
     flexGrow: 1,
     backgroundImage: `url(${background})`,
