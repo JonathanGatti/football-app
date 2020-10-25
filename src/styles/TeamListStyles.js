@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import transitions from '@material-ui/core/styles/transitions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +22,23 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  link: {
+    textDecoration: 'none',
+  },
   paper: {
-    height: 200,
     width: 200,
-    margin: '2rem'
+    margin: '2rem',
+    color: 'white',
+    textTransform: 'uppercase',
+    backgroundColor:'#38b927',
+    opacity: '0.7',
+    textAlign: 'center',
+    padding: '74px 0',
+    '&:hover':{
+      transform: 'scale(1.08) translateY(-5px)'
+    },
+    transition: 'all 0.2s ease-out'
   },
 }));
 
-export default useStyles;
+export {useStyles};

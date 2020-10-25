@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import getTeams from './utils/fetchDataLocalApi';
-import Team from './Team';
-import CreateTeam from './CreateTeam';
-import TeamsList from './TeamsList';
 import {Switch, Route} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
+import CreateTeam from './CreateTeam';
+import TeamsList from './TeamsList';
+import Navbar from './Navbar';
+import Team from './Team';
+
 import { TeamContextProvider } from './contexts/TeamContexts';
 import { FormContextProvider } from './contexts/FormContext';
-import './styles/App.css'
+import getTeams from './utils/fetchDataLocalApi';
+
+import './styles/App.css';
 
 function App() {
   const [teams, setTeams] = useState([]);
@@ -23,14 +26,14 @@ function App() {
   const getTeam = (props) => {
     let name = props.match.params.name;
     let currTeam = teams.find(team => (
-      team.teamName.toLowerCase() === name
+      team.teamName.toLowerCase() === name.toLowerCase()
     ))
-    console.log(currTeam)
     return <Team {...props} teamPlayers={currTeam.teamPlayers}/>
   }
   return (
     <TeamContextProvider>
       <FormContextProvider>
+        <Navbar/>
         <Paper className='body'>
           <Switch>
             <Route exact path='/' render={() => <TeamsList teams={teams}/>} />

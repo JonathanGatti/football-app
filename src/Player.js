@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
-import SearchPlayerForm from './SearchPlayerForm';
-import { FormContext } from './contexts/FormContext';
 import { PlayerInfoContext } from './contexts/PlayerInfoContext';
+import { FormContext } from './contexts/FormContext';
+
+import SearchPlayerForm from './SearchPlayerForm';
 import PlayerCard from './PlayerCard';
 import PlayerInfo from './PlayerInfo';
 

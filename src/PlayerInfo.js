@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
+import { PlayerInfoContext } from './contexts/PlayerInfoContext';
+
+import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { PlayerInfoContext } from './contexts/PlayerInfoContext';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+
 
 function PlayerInfo(props){
   const {player_name, age, position, birth_country, birth_date} = props.player;

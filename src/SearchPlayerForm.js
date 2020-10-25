@@ -1,15 +1,15 @@
 import React, {useContext, useState} from 'react';
-import {FormContext} from './contexts/FormContext';
 import useSearchPlayerForm from './hooks/useSearchPlayerForm';
-import PlayersList from './PlayersList';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
+import {FormContext} from './contexts/FormContext';
+
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
-import getData from './utils/fetchData';
-
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import PlayersList from './PlayersList';
+import {getData} from './utils/fetchData';
 
 function SearchPlayerForm(props) {
   const {open} = props
@@ -33,7 +33,7 @@ function SearchPlayerForm(props) {
             }}>
               <TextField 
                 margin='normal'
-                label='Search for a player'
+                label='player name'
                 value={val}
                 onChange={handleChange}
               />

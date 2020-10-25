@@ -19,4 +19,4 @@ async function getData(name){
   }
 }
 
-export default getData;
+export {getData};
