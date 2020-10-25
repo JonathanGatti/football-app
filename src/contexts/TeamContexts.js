@@ -1,10 +1,11 @@
 import React, {createContext, useState} from 'react';
-import defaultPlayers from '../seedPlayers';
 
 export const TeamContext = createContext();
 
+const defaultPlayers = [{},{},{},{},{},{},{},{},{},{},{}]
+
 export function TeamContextProvider(props) {
-  const [team, setTeam] = useState(defaultPlayers)
+  const [teamPlayers, setTeamPlayers] = useState(defaultPlayers)
 
   const getPosition = (position) => {
     switch(position){
@@ -18,15 +19,16 @@ export function TeamContextProvider(props) {
           return 3
     }
   }
+
   const updateTeam = (newPlayer, idx) => {
-    const updatedTeam = team.map((player, i) => {
+    const updatedTeam = teamPlayers.map((player, i) => {
       return idx === i ? {...newPlayer} : player
     })
-      setTeam(updatedTeam);
+      setTeamPlayers(updatedTeam);
   }
   
   return (
-    <TeamContext.Provider value={{team, setTeam, getPosition, updateTeam}}>
+    <TeamContext.Provider value={{teamPlayers, setTeamPlayers, getPosition, updateTeam}}>
       {props.children}
     </TeamContext.Provider>
   )

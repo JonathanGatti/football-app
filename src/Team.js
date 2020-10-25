@@ -9,12 +9,12 @@ import useStyles from './styles/TeamStyles';
 
 function Team(){
   const classes = useStyles();
-  const {team, getPosition} = useContext(TeamContext)
+  const {teamPlayers, getPosition} = useContext(TeamContext)
 
   return(
       <Paper className={classes.root}>
         <Grid container className={classes.container}spacing={4}>
-        {team.map((player, i) => (
+        {teamPlayers.map((player, i) => (
           <FormContextProvider>
             <PlayerInfoContextProvider>
               <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>

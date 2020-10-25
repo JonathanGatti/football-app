@@ -1,85 +1,67 @@
-import React, {useContext} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import useSearchPlayerForm from './hooks/useSearchPlayerForm';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
-import { FormContext } from './contexts/FormContext';
-import SearchPlayerForm from './SearchPlayerForm';
+import Player from './Player';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { TeamContext } from './contexts/TeamContexts';
+import { FormContextProvider } from './contexts/FormContext';
+import { PlayerInfoContextProvider } from './contexts/PlayerInfoContext';
+import  useStyles from './styles/TeamStyles'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  title: { 
-    color: 'white'
-  },
-  container: {
-    height: '90%',
-    width: '70%',
-    marginTop: '3rem',
-  },
-  paper: {
-    padding: theme.spacing(2),
-    marginTop: theme.spacing(3),
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    textAlign: 'center',
-    width: '200px',
-    color: theme.palette.text.secondary,
-  },
-}));
-
-function CreateTeam(props){
+function CreateTeam(){
   const classes = useStyles();
-  const {isFormShowing, handleClickOpen} = useContext(FormContext);
+  const [val, handleChange, reset] = useSearchPlayerForm('');
+  const [teamName, setTeamName] = useState('');
+  const {teamPlayers, getPosition} = useContext(TeamContext);
 
-  return (
-    <div className={classes.root}>
-      <Typography className={classes.title} variant='h3'>Create Your Team</Typography>
-      <Grid container className={classes.container} spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Button onClick={handleClickOpen}>Search for a Player</Button>
-          </Paper> 
-          <SearchPlayerForm open={isFormShowing}/>
+  function handleSubmit(){
+    setTeamName({teamName: val})
+  }
+
+  function submitTeam(){
+    axios.post('http://127.0.0.1:3001/api/teams', {
+      teamName : teamName.teamName,
+      teamPlayers: teamPlayers
+    })
+    .then(res => {
+      console.log(res)
+    })
+  }
+
+  return(
+      <Paper className={classes.root}>
+          <form className={classes.input} onSubmit={e => {
+              e.preventDefault()
+              handleSubmit()
+              reset()
+            }}>
+          <TextField 
+                margin='normal'
+                label='Search for a player'
+                value={val}
+                onChange={handleChange}
+          />
+        </form>
+        <Grid container className={classes.container}spacing={4}>
+        {teamPlayers.map((player, i) => (
+          <FormContextProvider>
+            <PlayerInfoContextProvider>
+              <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
+                <Paper className={classes.paper}>
+                  <Player idx={i} player={player} />
+                </Paper>
+              </Grid>
+            </PlayerInfoContextProvider>
+          </FormContextProvider>
+          ))
+        }
         </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-      </Grid>
-    </div>
+        <Button onClick={()=> submitTeam()}>SUBMIT</Button>
+      </Paper>
   )
 }
 

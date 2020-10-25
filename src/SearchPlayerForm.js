@@ -19,7 +19,6 @@ function SearchPlayerForm(props) {
 
   const handleSubmit = async () =>{
     const team = await getData(val)
-    console.log(team)
     setPlayers(team)
   } 
   return (
