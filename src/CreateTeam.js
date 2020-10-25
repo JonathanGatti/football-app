@@ -28,9 +28,6 @@ function CreateTeam(){
         'Content-Type': 'application/json',
         }
     })
-    .then(res => {
-      console.log(res)
-    })
     .catch(e => {
       console.log(e)
     })
