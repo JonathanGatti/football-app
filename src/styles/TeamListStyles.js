@@ -8,32 +8,28 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   title: {
-    color: 'white'
+    color: 'white',
+    marginTop: '2rem'
   },
   container: {
     width: '60%',
-    height: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   link: {
     textDecoration: 'none',
   },
-  paper: {
-    width: 200,
-    margin: '2rem',
+  linkBtn: {
     color: 'white',
+    margin: '2rem',
+    padding: '50px 50px',
     textTransform: 'uppercase',
-    backgroundColor:'#38b927',
-    opacity: '0.7',
+    backgroundColor:'rgba(45,37,83,1.0)',
     textAlign: 'center',
-    padding: '74px 0',
     '&:hover':{
       transform: 'scale(1.08) translateY(-5px)'
     },

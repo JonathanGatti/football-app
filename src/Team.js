@@ -8,14 +8,16 @@ import Grid from '@material-ui/core/Grid';
 import Player from './Player';
 
 import {useStyles} from './styles/TeamStyles';
+import { Typography } from '@material-ui/core';
 
 function Team(props){
   const classes = useStyles();
-  const {teamPlayers} = props;
+  const {teamPlayers, teamName} = props;
   const {getPosition} = useContext(TeamContext)
 
   return(
       <Paper className={classes.root}>
+        <Typography variant='h4' className={classes.title}>{teamName}</Typography>
         <Grid container className={classes.container}spacing={4}>
         {teamPlayers.map((player, i) => (
           <FormContextProvider key={i}>

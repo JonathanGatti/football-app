@@ -1,15 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
-import background from '../imgs/background.jpg'
+import background from '../imgs/3dsection.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundImage: `url(${background})`,
-    height: '100%',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    width: '100%',
+    backgroundColor:  'rgba(19,14,58,1.0)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -19,14 +14,24 @@ const useStyles = makeStyles((theme) => ({
       width: '25ch',
     },
   },
+  title: {
+    color: 'white',
+    textTransform: 'uppercase'
+  },
   container: {
-    height: '80%',
-    width: '60%',
+    backgroundImage: `url(${background})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: '100%',
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
   playerContainer : {
+    marginTop: 0,
+    paddingTop: 0,
     width: '300px',
     height: '200px',
     display: 'flex',

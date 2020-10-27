@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {deleteTeam} from './utils/requestsLocalApi'
 
 import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Grid from '@material-ui/core/Grid';
 
 import {useStyles} from './styles/TeamListStyles';
@@ -10,7 +12,7 @@ import {useStyles} from './styles/TeamListStyles';
 function TeamsList(props){
   const classes = useStyles();
   const {teams} = props;
-  
+
   return (
     <Grid container className={classes.root} >
       <Typography className={classes.title} variant='h3'>The Football App</Typography>
@@ -19,9 +21,10 @@ function TeamsList(props){
           {teams.map((team) => (
             <Grid key={team._id} item>
               <Link className={classes.link} to={`team/${team.teamName}`}>
-                <Paper className={classes.paper}>
-                  <Typography>{team.teamName}</Typography>
-                </Paper>
+                <Button className={classes.linkBtn}>
+                  {team.teamName}
+                  <DeleteIcon onClick={() => deleteTeam(team)}/>
+                </Button>
               </Link>
             </Grid>
             ))}

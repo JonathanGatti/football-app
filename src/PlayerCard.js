@@ -17,7 +17,7 @@ function PlayerCard(props){
   const {handleClickOpen} = useContext(FormContext);
   const {showPlayerInfo} = useContext(PlayerInfoContext);
   return (
-    <Card>
+    <Card className='card'>
       <CardContent>
         <Typography >{player_name}</Typography>
         <Typography >{position}</Typography>
@@ -33,7 +33,24 @@ function PlayerCard(props){
         </ButtonGroup>
       </CardActions>
     </Card>
+    
   )
 }
 
 export default PlayerCard;
+
+
+    // <div className='container'>
+    //   <div className='content'>
+    //     <h3>{player_name}</h3>
+    //     <p>{position}</p>
+    //   </div>
+    //   <div className='actions'>
+    //     <button onClick={handleClickOpen}>
+    //       Edit
+    //     </button>
+    //     <button onClick={showPlayerInfo}>
+    //       More
+    //     </button>
+    //   </div>
+    // </div>
