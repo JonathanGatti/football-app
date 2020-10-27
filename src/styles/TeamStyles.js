@@ -7,8 +7,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:  'rgba(19,14,58,1.0)',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
     '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
@@ -30,23 +28,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   playerContainer : {
-    marginTop: 0,
-    paddingTop: 0,
-    width: '300px',
-    height: '200px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    marginTop: theme.spacing(1),
-    backgroundColor: 'transparent',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: theme.palette.text.secondary,
+    maxHeight: '200px',
+    maxWidth: 'auto',
+    marginTop: '1rem',
+    display : 'flex',
+    justifyContent: 'center'
   },
 }));
 

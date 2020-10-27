@@ -20,9 +20,9 @@ function Player(props) {
       <>
       { 
       isPlayerInfoShowing ? 
-      <PlayerInfo player={player} open={isPlayerInfoShowing}/> 
+        <PlayerInfo player={player} open={isPlayerInfoShowing}/> 
       : 
-      <PlayerCard player={player}/>
+        <PlayerCard player={player}/>
       }   
       </>
       }  

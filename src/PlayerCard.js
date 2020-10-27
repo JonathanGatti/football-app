@@ -11,7 +11,6 @@ import Card from '@material-ui/core/Card';
 
 import './styles/PlayerCard.css'
 
-
 function PlayerCard(props){
   const {player_name, position} = props.player;
   const {handleClickOpen} = useContext(FormContext);
@@ -32,25 +31,8 @@ function PlayerCard(props){
           </Button> 
         </ButtonGroup>
       </CardActions>
-    </Card>
-    
+    </Card>   
   )
 }
 
 export default PlayerCard;
-
-
-    // <div className='container'>
-    //   <div className='content'>
-    //     <h3>{player_name}</h3>
-    //     <p>{position}</p>
-    //   </div>
-    //   <div className='actions'>
-    //     <button onClick={handleClickOpen}>
-    //       Edit
-    //     </button>
-    //     <button onClick={showPlayerInfo}>
-    //       More
-    //     </button>
-    //   </div>
-    // </div>

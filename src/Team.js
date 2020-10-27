@@ -18,14 +18,12 @@ function Team(props){
   return(
       <Paper className={classes.root}>
         <Typography variant='h4' className={classes.title}>{teamName}</Typography>
-        <Grid container className={classes.container}spacing={4}>
+        <Grid container className={classes.container} spacing={4}>
         {teamPlayers.map((player, i) => (
           <FormContextProvider key={i}>
             <PlayerInfoContextProvider>
-              <Grid className={classes.playerContainer} item xs={getPosition(player.position)}>
-                <Paper className={classes.paper}>
+              <Grid className={classes.playerContainer} style={{backgroundColor: 'transparent'}} xs={getPosition(player.position)}>
                   <Player idx={i} player={player}/>
-                </Paper>
               </Grid>
             </PlayerInfoContextProvider>
           </FormContextProvider>
